@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sendero de Luz · Grupo de Apoyo en el Duelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --sage: #8a9e8c;
+    --sage-light: #b5c4b6;
+    --sage-pale: #dce7dc;
+    --beige: #f2ede4;
+    --beige-warm: #e8dfd0;
+    --beige-dark: #c8bca8;
+    --grey-soft: #6b6b6b;
+    --grey-muted: #9a9a9a;
+    --grey-pale: #f5f5f3;
+    --text-dark: #2d2d2d;
+    --text-medium: #4a4a4a;
+    --white: #fdfcfa;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background-color: var(--white);
+    color: var(--text-dark);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.4rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(253, 252, 250, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(138, 158, 140, 0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--sage);
+  }
+
+  .nav-logo span {
+    color: var(--text-dark);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--grey-soft);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: var(--sage);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=1800&q=80');
+    background-size: cover;
+    background-position: center 30%;
+    transform: scale(1.04);
+    animation: slowZoom 20s ease-out forwards;
+  }
+
+  @keyframes slowZoom {
+    to { transform: scale(1); }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgba(242, 237, 228, 0.92) 0%,
+      rgba(242, 237, 228, 0.78) 45%,
+      rgba(138, 158, 140, 0.15) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 4rem;
+    max-width: 680px;
+    animation: fadeUp 1.2s ease-out 0.3s both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage);
+    border: 1px solid var(--sage-light);
+    padding: 0.45rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    background: rgba(255,255,255,0.5);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.18;
+    color: var(--text-dark);
+    margin-bottom: 1.6rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--sage);
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-medium);
+    max-width: 520px;
+    margin-bottom: 2.8rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--sage);
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    font-weight: 400;
+    transition: all 0.35s ease;
+    box-shadow: 0 8px 32px rgba(138, 158, 140, 0.35);
+  }
+
+  .hero-cta:hover {
+    background: #7a8e7c;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(138, 158, 140, 0.45);
+  }
+
+  .hero-cta svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hero-detail {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 4rem;
+    z-index: 2;
+    text-align: right;
+    animation: fadeUp 1.4s ease-out 0.8s both;
+  }
+
+  .hero-detail p {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--text-medium);
+    text-transform: uppercase;
+  }
+
+  .hero-detail .days {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--sage);
+    line-height: 1;
+    display: block;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--beige-dark), transparent);
+    margin: 0 4rem;
+  }
+
+  /* ── INTRO QUOTE ── */
+  .quote-section {
+    padding: 6rem 4rem;
+    background: var(--beige);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quote-section::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18rem;
+    color: rgba(138, 158, 140, 0.08);
+    position: absolute;
+    top: -4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .quote-section blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-medium);
+    max-width: 760px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.65;
+    position: relative;
+    z-index: 1;
+  }
+
+  .quote-section cite {
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-style: normal;
+  }
+
+  /* ── WHAT YOU WILL FIND ── */
+  .features {
+    padding: 7rem 4rem;
+    background: var(--white);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sage);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--text-dark);
+    line-height: 1.3;
+  }
+
+  .section-subtitle {
+    margin-top: 1rem;
+    color: var(--grey-muted);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .feature-card {
+    background: var(--grey-pale);
+    border: 1px solid rgba(138, 158, 140, 0.12);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--sage-light), var(--sage));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.07);
+  }
+
+  .feature-card:hover::after {
+    transform: scaleX(1);
+  }
+
+  .feature-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--sage-pale);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.8rem;
+  }
+
+  .feature-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--sage);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .feature-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 0.9rem;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--grey-soft);
+  }
+
+  .feature-number {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: rgba(138, 158, 140, 0.1);
+    line-height: 1;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .process {
+    padding: 7rem 4rem;
+    background: var(--beige);
+  }
+
+  .process-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .process-image {
+    position: relative;
+  }
+
+  .process-image img {
+    width: 100%;
+    height: 560px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .process-badge {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    background: var(--sage);
+    color: white;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(138, 158, 140, 0.4);
+  }
+
+  .process-badge .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    line-height: 1;
+    display: block;
+  }
+
+  .process-badge .label {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    display: block;
+    margin-top: 0.3rem;
+  }
+
+  .process-content .section-header {
+    text-align: left;
+    margin-bottom: 3rem;
+  }
+
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .step-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--sage-pale);
+    border: 1.5px solid var(--sage-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--sage);
+    margin-top: 0.1rem;
+  }
+
+  .step-text h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 0.4rem;
+  }
+
+  .step-text p {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: var(--grey-soft);
+  }
+
+  /* ── BIO ── */
+  .bio {
+    padding: 7rem 4rem;
+    background: var(--white);
+  }
+
+  .bio-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .bio-image-wrap {
+    position: sticky;
+    top: 100px;
+  }
+
+  .bio-image-frame {
+    position: relative;
+  }
+
+  .bio-image-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--sage-light);
+    border-radius: 20px;
+    transform: translate(10px, 10px);
+    z-index: 0;
+  }
+
+  .bio-image-frame img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+    filter: saturate(0.9);
+  }
+
+  .bio-credential {
+    background: var(--beige);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border: 1px solid var(--beige-dark);
+  }
+
+  .bio-credential svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--sage);
+    fill: none;
+    stroke-width: 1.5;
+    flex-shrink: 0;
+  }
+
+  .bio-credential p {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--grey-soft);
+  }
+
+  .bio-credential strong {
+    display: block;
+    color: var(--text-dark);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+
+  .bio-content .section-header {
+    text-align: left;
+    margin-bottom: 2.5rem;
+  }
+
+  .bio-text {
+    font-size: 0.97rem;
+    line-height: 1.95;
+    color: var(--text-medium);
+    margin-bottom: 1.5rem;
+  }
+
+  .bio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .bio-tag {
+    background: var(--sage-pale);
+    color: var(--sage);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    padding: 0.5rem 1.1rem;
+    border-radius: 50px;
+    border: 1px solid var(--sage-light);
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials {
+    padding: 7rem 4rem;
+    background: var(--sage);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonials::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1800&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.08;
+  }
+
+  .testimonials .section-header {
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonials .section-label {
+    color: rgba(255,255,255,0.7);
+  }
+
+  .testimonials .section-title {
+    color: white;
+  }
+
+  .testimonials .section-subtitle {
+    color: rgba(255,255,255,0.65);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 20px;
+    padding: 2.5rem;
+  }
+
+  .testimonial-stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 1.2rem;
+  }
+
+  .star {
+    width: 14px;
+    height: 14px;
+    fill: var(--beige-warm);
+  }
+
+  .testimonial-text {
+    font-size: 0.92rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.88);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+  }
+
+  .testimonial-author {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 8rem 4rem;
+    background: var(--beige);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(138, 158, 140, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .cta-section .section-title {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--grey-soft);
+    margin-bottom: 3rem;
+  }
+
+  .cta-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 1.15rem 2.5rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    transition: all 0.35s ease;
+    box-shadow: 0 8px 36px rgba(37, 211, 102, 0.35);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-main:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px rgba(37, 211, 102, 0.45);
+    background: #1ebf5a;
+  }
+
+  .cta-main svg {
+    width: 22px;
+    height: 22px;
+    fill: white;
+  }
+
+  .cta-note {
+    font-size: 0.78rem;
+    color: var(--grey-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .cta-note span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0 0.8rem;
+  }
+
+  .cta-note svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--sage);
+    fill: none;
+    stroke-width: 2;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #2d2d2d;
+    color: rgba(255,255,255,0.5);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.75);
+  }
+
+  footer p {
+    font-size: 0.78rem;
+    line-height: 1.6;
+  }
+
+  footer a {
+    color: var(--sage-light);
+    text-decoration: none;
+  }
+
+  /* ── SCROLL REVEALS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    .hero-content { padding: 0 2rem; max-width: 100%; }
+    .hero-detail { display: none; }
+    .features { padding: 5rem 2rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .quote-section { padding: 5rem 2rem; }
+    .process { padding: 5rem 2rem; }
+    .process-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .process-image img { height: 300px; }
+    .bio { padding: 5rem 2rem; }
+    .bio-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .bio-image-wrap { position: static; }
+    .bio-image-frame img { height: 360px; }
+    .testimonials { padding: 5rem 2rem; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .cta-section { padding: 6rem 2rem; }
+    footer { padding: 2.5rem 2rem; flex-direction: column; text-align: center; }
+    .section-divider { margin: 0 2rem; }
+  }
+
+  /* ── PROGRAMA 30 DÍAS ── */
+  .programa {
+    padding: 7rem 4rem;
+    background: var(--beige);
+  }
+
+  .programa-intro {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .semanas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .semana-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    border: 1px solid rgba(138, 158, 140, 0.15);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .semana-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.07);
+  }
+
+  .semana-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--sage-light), var(--sage));
+  }
+
+  .semana-card:nth-child(2)::before { background: linear-gradient(90deg, #b5c4b6, #8a9e8c); }
+  .semana-card:nth-child(3)::before { background: linear-gradient(90deg, var(--beige-dark), #b5a990); }
+  .semana-card:nth-child(4)::before { background: linear-gradient(90deg, var(--sage), #6a8a6c); }
+
+  .semana-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .semana-badge {
+    background: var(--sage-pale);
+    color: var(--sage);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    border: 1px solid var(--sage-light);
+    white-space: nowrap;
+  }
+
+  .semana-dias {
+    font-size: 0.72rem;
+    color: var(--grey-muted);
+    letter-spacing: 0.08em;
+  }
+
+  .semana-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .semana-desc {
+    font-size: 0.87rem;
+    color: var(--grey-soft);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .dias-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .dia-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.83rem;
+    color: var(--text-medium);
+    line-height: 1.45;
+  }
+
+  .dia-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.78rem;
+    color: var(--sage);
+    min-width: 38px;
+    font-weight: 500;
+    padding-top: 0.05rem;
+    letter-spacing: 0.04em;
+  }
+
+  .programa-nota {
+    margin-top: 3rem;
+    text-align: center;
+    background: var(--sage-pale);
+    border: 1px solid var(--sage-light);
+    border-radius: 16px;
+    padding: 2rem 3rem;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+  }
+
+  .programa-nota p {
+    font-size: 0.92rem;
+    color: var(--text-medium);
+    line-height: 1.8;
+  }
+
+  .programa-nota strong {
+    color: var(--sage);
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .programa { padding: 5rem 2rem; }
+    .semanas-grid { grid-template-columns: 1fr; }
+    .programa-nota { padding: 1.8rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Sendero <span>de Luz</span></div>
+  <ul class="nav-links">
+    <li><a href="#que-encontraras">El Programa</a></li>
+    <li><a href="#programa">30 Días</a></li>
+    <li><a href="#psicóloga">Sobre mí</a></li>
+    <li><a href="#unirme">Unirme</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Grupo de Apoyo · Duelo &amp; Sanación</span>
+    <h1>El dolor que sientes<br>es señal de lo mucho<br>que <em>amaste</em></h1>
+    <p>Un espacio seguro, compasivo y guiado por una psicóloga especialista en duelo, para que no tengas que atravesar esta pérdida en soledad.</p>
+    <a href="#unirme" class="hero-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+      Quiero acompañamiento
+    </a>
+  </div>
+  <div class="hero-detail">
+    <p>Programa de</p>
+    <span class="days">30</span>
+    <p>días de acompañamiento</p>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section reveal">
+  <blockquote>
+    "El duelo es el precio del amor. Y cada persona merece tener un lugar donde llorar, recordar y, poco a poco, volver a respirar."
+  </blockquote>
+  <cite>Jaderlin Mosquera · Psicóloga Especialista en Duelo</cite>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="que-encontraras">
+  <div class="section-header reveal">
+    <span class="section-label">Lo que te ofrecemos</span>
+    <h2 class="section-title">Un camino pensado<br>para ti, paso a paso</h2>
+    <p class="section-subtitle">Durante 30 días recibirás herramientas diseñadas con rigor clínico y entregadas con calidez humana.</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-number">01</div>
+      <div class="feature-icon">
+        <!-- Envelope / messages icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </div>
+      <h3>Mensajes diarios de acompañamiento</h3>
+      <p>Cada mañana recibirás un mensaje cuidadosamente elaborado por la psicóloga: reflexiones, palabras de aliento y orientación para ese día en particular de tu proceso.</p>
+    </div>
+
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-number">02</div>
+      <div class="feature-icon">
+        <!-- Heart/therapy icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+          <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+          <line x1="9" y1="9" x2="9.01" y2="9"/>
+          <line x1="15" y1="9" x2="15.01" y2="9"/>
+        </svg>
+      </div>
+      <h3>Ejercicios terapéuticos guiados</h3>
+      <p>Técnicas validadas de psicología del duelo: escritura expresiva, visualizaciones, ejercicios de respiración y recursos para momentos de crisis emocional intensa.</p>
+    </div>
+
+    <div class="feature-card reveal reveal-delay-3">
+      <div class="feature-number">03</div>
+      <div class="feature-icon">
+        <!-- Leaf / self-care icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 5.25-8 5.25"/>
+          <path d="M5 15.3C5 15.3 8 14 8 12"/>
+        </svg>
+      </div>
+      <h3>Rituales de autocuidado</h3>
+      <p>Prácticas suaves de autocuidado adaptadas a tu energía del momento: desde movimiento gentil hasta pequeños actos de ternura hacia ti mismo que ayudan a sostener el cuerpo en el duelo.</p>
+    </div>
+
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-number">04</div>
+      <div class="feature-icon">
+        <!-- People / community icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <h3>Comunidad de sostén mutuo</h3>
+      <p>Un grupo privado de WhatsApp donde compartir (si así lo deseas) con otras personas que también atraviesan el duelo. Sin juicios, con presencia y mucho respeto.</p>
+    </div>
+
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-number">05</div>
+      <div class="feature-icon">
+        <!-- Book / resources icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+      </div>
+      <h3>Recursos y lecturas seleccionadas</h3>
+      <p>Acceso semanal a audios, lecturas breves y materiales de apoyo seleccionados por la psicóloga según las etapas del duelo que el grupo vaya transitando.</p>
+    </div>
+
+    <div class="feature-card reveal reveal-delay-3">
+      <div class="feature-number">06</div>
+      <div class="feature-icon">
+        <!-- Shield / safe space icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <h3>Espacio de confidencialidad total</h3>
+      <p>El grupo opera bajo estrictos principios de confidencialidad. Lo que se comparte aquí, permanece aquí. Tu privacidad y seguridad emocional son nuestra prioridad.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+
+<!-- PROGRAMA 30 DÍAS -->
+<section class="programa" id="programa">
+  <div class="section-header reveal">
+    <span class="section-label">El recorrido completo</span>
+    <h2 class="section-title">30 días estructurados<br>con intención y cuidado</h2>
+    <p class="section-subtitle">El programa avanza de forma progresiva, respetando los tiempos naturales del duelo. Cada semana tiene un enfoque distinto, y cada día tiene un propósito.</p>
+  </div>
+
+  <div class="semanas-grid">
+
+    <!-- SEMANA 1 -->
+    <div class="semana-card reveal reveal-delay-1">
+      <div class="semana-header">
+        <span class="semana-badge">Semana 1</span>
+        <span class="semana-dias">Días 1 al 7</span>
+      </div>
+      <h3>Contención y comprensión del duelo</h3>
+      <p class="semana-desc">Un espacio de bienvenida segura donde entender qué está pasando en ti, nombrar las emociones y empezar a sostenerte con compasión.</p>
+      <div class="dias-list">
+        <div class="dia-item"><span class="dia-num">Día 1</span> Bienvenida y contención emocional</div>
+        <div class="dia-item"><span class="dia-num">Día 2</span> ¿Qué es el duelo y por qué duele tanto?</div>
+        <div class="dia-item"><span class="dia-num">Día 3</span> Las emociones del duelo — todo es válido</div>
+        <div class="dia-item"><span class="dia-num">Día 4</span> El duelo y los cambios en la vida diaria</div>
+        <div class="dia-item"><span class="dia-num">Día 5</span> Mitos sobre el duelo que nos hacen daño</div>
+        <div class="dia-item"><span class="dia-num">Día 6</span> Poner límites en el duelo sin culpa</div>
+        <div class="dia-item"><span class="dia-num">Día 7</span> Integración y cierre de la primera semana</div>
+      </div>
+    </div>
+
+    <!-- SEMANA 2 -->
+    <div class="semana-card reveal reveal-delay-2">
+      <div class="semana-header">
+        <span class="semana-badge">Semana 2</span>
+        <span class="semana-dias">Días 8 al 15</span>
+      </div>
+      <h3>Emociones difíciles y vínculos internos</h3>
+      <p class="semana-desc">Explorar las emociones más incómodas: la culpa, el enojo, la tristeza y el miedo. Aprender a sostenerlas sin que nos desborden.</p>
+      <div class="dias-list">
+        <div class="dia-item"><span class="dia-num">Día 8</span> El vínculo con lo que se perdió</div>
+        <div class="dia-item"><span class="dia-num">Día 9</span> Los recuerdos: cómo convivir sin quedar atrapado</div>
+        <div class="dia-item"><span class="dia-num">Día 10</span> Fechas, aniversarios y momentos difíciles</div>
+        <div class="dia-item"><span class="dia-num">Día 11</span> El cansancio emocional en el duelo</div>
+        <div class="dia-item"><span class="dia-num">Día 12</span> La culpa en el duelo</div>
+        <div class="dia-item"><span class="dia-num">Día 13</span> ¿Quién soy ahora después de esta pérdida?</div>
+        <div class="dia-item"><span class="dia-num">Día 14</span> El miedo a olvidar</div>
+        <div class="dia-item"><span class="dia-num">Día 15</span> Cuando el duelo convive con la calma</div>
+      </div>
+    </div>
+
+    <!-- SEMANA 3 -->
+    <div class="semana-card reveal reveal-delay-1">
+      <div class="semana-header">
+        <span class="semana-badge">Semana 3</span>
+        <span class="semana-dias">Días 16 al 23</span>
+      </div>
+      <h3>El cuerpo, las relaciones y los límites</h3>
+      <p class="semana-desc">El duelo también vive en el cuerpo y en los vínculos. Esta semana atendemos lo físico, aprendemos a pedir ayuda y a proteger nuestra energía.</p>
+      <div class="dias-list">
+        <div class="dia-item"><span class="dia-num">Día 16</span> El duelo en el cuerpo — mapa corporal</div>
+        <div class="dia-item"><span class="dia-num">Día 17</span> El enojo en el duelo</div>
+        <div class="dia-item"><span class="dia-num">Día 18</span> La tristeza profunda en el duelo</div>
+        <div class="dia-item"><span class="dia-num">Día 19</span> La soledad en el duelo</div>
+        <div class="dia-item"><span class="dia-num">Día 20</span> Pedir ayuda sin sentirse una carga</div>
+        <div class="dia-item"><span class="dia-num">Día 21</span> Límites emocionales en el duelo</div>
+        <div class="dia-item"><span class="dia-num">Día 22</span> Afrontar comentarios que duelen</div>
+        <div class="dia-item"><span class="dia-num">Día 23</span> Pedir apoyo sin culpa</div>
+      </div>
+    </div>
+
+    <!-- SEMANA 4 -->
+    <div class="semana-card reveal reveal-delay-2">
+      <div class="semana-header">
+        <span class="semana-badge">Semana 4</span>
+        <span class="semana-dias">Días 24 al 30</span>
+      </div>
+      <h3>Reconstrucción, integración y cierre</h3>
+      <p class="semana-desc">Aprender a integrar la pérdida como parte de tu historia, permitirte volver a vivir y cerrar el proceso con herramientas que te acompañarán siempre.</p>
+      <div class="dias-list">
+        <div class="dia-item"><span class="dia-num">Día 24</span> El duelo y las relaciones — mapa relacional</div>
+        <div class="dia-item"><span class="dia-num">Día 25</span> Tu soledad segura</div>
+        <div class="dia-item"><span class="dia-num">Día 26</span> La culpa y la carta de perdón</div>
+        <div class="dia-item"><span class="dia-num">Día 27</span> Permitirte estar bien sin culpa</div>
+        <div class="dia-item"><span class="dia-num">Día 28</span> Reconstruir proyectos y sentido de vida</div>
+        <div class="dia-item"><span class="dia-num">Día 29</span> El vínculo continúa de otra forma</div>
+        <div class="dia-item"><span class="dia-num">Día 30</span> Cierre, integración y despedida del proceso</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="programa-nota reveal">
+    <p>Cada día incluye un <strong>mensaje de acompañamiento</strong>, un <strong>ejercicio terapéutico guiado</strong> y una <strong>tarea de autocuidado opcional</strong>.<br>
+    El programa es una invitación, no una obligación. Puedes participar a tu ritmo, sin presión y sin juicios.</p>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="process-inner">
+    <div class="process-image reveal">
+      <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80" alt="Naturaleza serena, camino entre árboles">
+      <div class="process-badge">
+        <span class="num">30</span>
+        <span class="label">días contigo</span>
+      </div>
+    </div>
+
+    <div class="process-content">
+      <div class="section-header">
+        <span class="section-label">Cómo funciona</span>
+        <h2 class="section-title">Un mes para<br>aprender a respirar<br>de nuevo</h2>
+      </div>
+      <div class="process-steps">
+        <div class="step reveal reveal-delay-1">
+          <div class="step-dot">1</div>
+          <div class="step-text">
+            <h4>Te unes al grupo de WhatsApp</h4>
+            <p>Accedes de forma inmediata al grupo privado. Solo necesitas tu nombre y ganas de acompañarte en este proceso.</p>
+          </div>
+        </div>
+        <div class="step reveal reveal-delay-2">
+          <div class="step-dot">2</div>
+          <div class="step-text">
+            <h4>Empiezas a recibir contenido desde el día 1</h4>
+            <p>Cada día, al despertar, encontrarás un mensaje de la psicóloga esperándote. Sin presión. A tu ritmo.</p>
+          </div>
+        </div>
+        <div class="step reveal reveal-delay-3">
+          <div class="step-dot">3</div>
+          <div class="step-text">
+            <h4>Participas según tu energía</h4>
+            <p>Puedes leer en silencio, compartir o simplemente estar presente. No hay obligación de participar activamente.</p>
+          </div>
+        </div>
+        <div class="step reveal reveal-delay-1">
+          <div class="step-dot">4</div>
+          <div class="step-text">
+            <h4>Al finalizar, llevas contigo herramientas para siempre</h4>
+            <p>Los 30 días terminan, pero las herramientas, los rituales y la comprensión que construiste son tuyas para siempre.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIO -->
+<section class="bio" id="psicóloga">
+  <div class="bio-inner">
+    <div class="bio-image-wrap reveal">
+      <div class="bio-image-frame">
+        <img src="data:image/png;base64,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" alt="Jaderlin Mosquera, Psicóloga">
+      </div>
+      <div class="bio-credential">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+        <p>
+          <strong>Psicóloga Especialista</strong>
+          Seguridad y Salud en el Trabajo · Acompañante en Duelo
+        </p>
+      </div>
+    </div>
+
+    <div class="bio-content">
+      <div class="section-header">
+        <span class="section-label">Tu guía en este camino</span>
+        <h2 class="section-title">Jaderlin Mosquera<br><em style="font-size: 0.7em; color: var(--sage)">Psicóloga · Especialista en Duelo y Transformación Emocional</em></h2>
+      </div>
+      <p class="bio-text reveal">
+        Soy Jaderlin Mosquera, psicóloga especialista en Seguridad y Salud en el Trabajo, y durante años he acompañado a personas en momentos donde la vida cambia de manera inesperada.
+      </p>
+      <p class="bio-text reveal">
+        He visto cómo la pérdida puede desordenarlo todo: la identidad, la estabilidad emocional, las certezas. He escuchado culpas que se susurran en voz baja, enojos que generan vergüenza y silencios que pesan más que las palabras. Y también he sido testigo de algo profundamente esperanzador: la capacidad humana de reconstruirse sin dejar de amar.
+      </p>
+      <p class="bio-text reveal">
+        Este libro no nace solo desde mi formación profesional. Nace desde mi experiencia acompañando procesos reales, sosteniendo historias que dejaron huella en mí, y comprendiendo que el duelo no es olvidar, sino aprender a integrar.
+      </p>
+      <p class="bio-text reveal">
+        Creo profundamente que el dolor no se evita; se transita. Que resignificar no es traicionar. Y que es posible vivir el duelo sin dejar de vivir. Escribo para quienes han perdido algo significativo y sienten que una parte de su historia cambió para siempre, con la intención de que estas páginas sean un espacio seguro donde puedas comprender lo que sientes sin juicio.
+      </p>
+      <div class="bio-tags reveal">
+        <span class="bio-tag">Duelo &amp; Pérdida</span>
+        <span class="bio-tag">Transformación Emocional</span>
+        <span class="bio-tag">Seguridad y Salud en el Trabajo</span>
+        <span class="bio-tag">Acompañamiento Terapéutico</span>
+        <span class="bio-tag">Resignificación del Dolor</span>
+        <span class="bio-tag">Escritura Terapéutica</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonios">
+  <div class="section-header reveal">
+    <span class="section-label">Voces del grupo</span>
+    <h2 class="section-title">Lo que dicen quienes<br>ya recorrieron este camino</h2>
+    <p class="section-subtitle">Palabras de personas que vivieron el programa y encontraron un poco de luz.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-stars">
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="testimonial-text">"Perdí a mi madre en enero y sentía que no había un lugar donde hablar de eso sin incomodar a la gente. Este grupo fue exactamente lo que necesitaba. Los mensajes de Jaderlin llegaban en el momento justo."</p>
+      <span class="testimonial-author">— María C., 47 años · Guadalajara</span>
+    </div>
+
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-stars">
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="testimonial-text">"No esperaba tanto de un grupo de WhatsApp, honestamente. Pero los ejercicios que Jaderlin compartía eran tan concretos y tan útiles... Aprendí a hablar con mi duelo en lugar de huir de él."</p>
+      <span class="testimonial-author">— Roberto A., 38 años · Bogotá</span>
+    </div>
+
+    <div class="testimonial-card reveal reveal-delay-3">
+      <div class="testimonial-stars">
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="testimonial-text">"Había días que no quería leer nada, y está bien. Pero siempre que lo hacía, encontraba algo que me sostenía. Jaderlin tiene una forma de escribir que llega directo al corazón sin hacerte sentir más roto."</p>
+      <span class="testimonial-author">— Lucía M., 55 años · Buenos Aires</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="unirme">
+  <div class="cta-inner">
+    <div class="section-header">
+      <span class="section-label">Empieza cuando estés listo</span>
+      <h2 class="section-title">No tienes que<br>atravesar esto solo</h2>
+    </div>
+    <p>El grupo abre sus puertas el primer lunes de cada mes. Si sientes que este es tu momento, da el paso. Si aún no estás seguro, también está bien. Aquí estaremos cuando lo necesites.</p>
+    <div>
+      <a href="https://wa.me/34600000000?text=Hola,%20me%20gustaría%20unirme%20al%20grupo%20de%20apoyo%20en%20el%20duelo%20Sendero%20de%20Luz" class="cta-main" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+        Unirme al grupo de WhatsApp
+      </a>
+    </div>
+    <p class="cta-note">
+      <span>
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Grupo privado y confidencial
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Próxima apertura: 1 de marzo
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Plazas limitadas
+      </span>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Sendero de Luz</div>
+  <p>Grupo de Apoyo en el Duelo · Jaderlin Mosquera · Psicóloga Especialista en Duelo<br>
+  Para consultas: <a href="/cdn-cgi/l/email-protection#f0989f9c91b083959e9495829f94959c85de939f9d"><span class="__cf_email__" data-cfemail="8be3e4e7eacbf8eee5efeef9e4efeee7fea5e8e4e6">[email&#160;protected]</span></a></p>
+  <p>© 2025 · Todos los derechos reservados</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth nav highlight
+  const nav = documen
